@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< refs/remotes/origin/DenisYurkov:Assets/Prefabs/tree1.png.meta
 guid: 2a74538478ec1d94da67769623059aaf
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+guid: 3f1bdb47ce4d0dc4d99a5c2483a9d009
+=======
+guid: d3c180d92a255c945bd0204cad94b700
+>>>>>>> Stashed changes
+=======
+guid: 87aa96cdfdeebd7408947c635b63ab64
+>>>>>>> Stashed changes
+>>>>>>> Auto stash before merge of "main" and "origin/main":Assets/Art and assets/sprites_viking_axe/axe_origin/attack2_6.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

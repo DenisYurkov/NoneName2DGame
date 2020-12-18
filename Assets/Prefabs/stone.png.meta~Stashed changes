@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< refs/remotes/origin/DenisYurkov:Assets/Prefabs/stone.png.meta~Stashed changes
 guid: abff1a663d477184ea69f6c539886e50
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+guid: 0ad3fc545b36baa4e8060dd434124a4f
+=======
+guid: 872540c241df8ce42ae329ece419819e
+>>>>>>> Stashed changes
+=======
+guid: 4099894682b35ae44a7a0dc17b349674
+>>>>>>> Stashed changes
+>>>>>>> Auto stash before merge of "main" and "origin/main":Assets/Art and assets/sprites_viking_axe/axe_origin/attack2_4.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< refs/remotes/origin/DenisYurkov:Assets/Art and assets/Sprites/emptyHeart.png.meta
 guid: 25e64099ce528aa4cb8b605bd54a2cac
+=======
+<<<<<<< Updated upstream
+guid: f800822e9d22bba43a1d32cbc1815f62
+=======
+guid: 1fe9b1c55e4796e4eab07a9b999c6d8f
+>>>>>>> Stashed changes
+>>>>>>> Auto stash before merge of "main" and "origin/main":Assets/Art and assets/tayl_litsuyust.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
