@@ -1,5 +1,6 @@
 fileFormatVersion: 2
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 guid: 4f537558a03012647b986b262a58c5a5
 =======
 guid: a2fe1201286a36a48b44207927cdfa30
@@ -21,6 +22,11 @@ TextureImporter:
   - first:
       213: -7984803730284319388
     second: zemelka_4
+=======
+guid: 05f570e58c31ddd4d89792ef230080cc
+TextureImporter:
+  internalIDToNameTable: []
+>>>>>>> Stashed changes
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -59,20 +65,29 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
+<<<<<<< Updated upstream
   spriteMode: 2
 <<<<<<< Updated upstream
   spriteExtrude: 1
 =======
   spriteExtrude: 0
 >>>>>>> Stashed changes
+=======
+  spriteMode: 1
+  spriteExtrude: 1
+>>>>>>> Stashed changes
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   spriteBorder: {x: 933, y: 25, z: 0, w: 105}
 =======
   spriteBorder: {x: 0, y: 0, z: 925, w: 0}
+>>>>>>> Stashed changes
+=======
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
 >>>>>>> Stashed changes
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -98,6 +113,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< Updated upstream
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -245,6 +261,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+=======
+  spriteSheet:
+    serializedVersion: 2
+    sprites: []
+>>>>>>> Stashed changes
     outline: []
     physicsShape: []
     bones: []
