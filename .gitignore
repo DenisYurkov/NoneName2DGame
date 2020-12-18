@@ -22,6 +22,9 @@
 # Visual Studio cache directory
 .vs/
 
+# Documents
+~$chnical documentation(english version)
+
 # Gradle cache directory
 .gradle/
 
