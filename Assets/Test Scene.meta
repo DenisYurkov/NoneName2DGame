@@ -1,9 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< refs/remotes/origin/DenisYurkov
 <<<<<<< HEAD
 guid: 29c6aa3bc56c65d43a0ddbe1ebef959e
 =======
 guid: fe80656e16b23534ab7951f48f2843b9
 >>>>>>> AliakseiYunevich
+=======
+<<<<<<< Updated upstream
+guid: 29c6aa3bc56c65d43a0ddbe1ebef959e
+=======
+guid: d5f426fd831efd04cbf58a894f2d0e73
+>>>>>>> Stashed changes
+>>>>>>> Auto stash before rebase of "origin/DenisYurkov"
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
