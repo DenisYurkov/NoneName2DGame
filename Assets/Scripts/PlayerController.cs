@@ -6,49 +6,43 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Settings")]
     public float speed;
-    private float moveInput;
-    private Rigidbody2D rb;
-    private bool bodyRight = true;
     public float jumpForce;
-    private bool isGrounded;
-    public Transform feetPos;
     public float checkRadius;
+    
+    [Header("Player Position")]
+    public Transform feetPos;
     public LayerMask whatIsGround;
-    public Animator anim;
 
+    [Header("Player Animator")]
+    public Animator playerAnimator;
+
+    // Private Settings.
+    private float moveInput;
+    private bool bodyRight = true;
+    private bool isGrounded;
+    private Rigidbody2D rb;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        playerAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
-    {
-        
+    {   
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
-
-        if (isGrounded == true && Input.GetKey(KeyCode.Space))
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            anim.SetTrigger("takeOf");
-
-        }
-        if (isGrounded == true)
-        {
-            anim.SetBool("isJumping", false);
-        }
-        else
-        {
-            anim.SetBool("isJumping", true);
-        }
-
+        Jump();
     }
+
     private void FixedUpdate()
     {
         moveInput = Input.GetAxis("Horizontal");
+        RunAndWalk();
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
+        // Flip Logic!
         if (bodyRight == false && moveInput > 0)
         {
             Flip();
@@ -57,30 +51,55 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
+
         if (moveInput == 0)
         {
-            anim.SetBool("isRunning", false);
+            playerAnimator.SetBool("isRunning", false);
         }
         else
         {
-            anim.SetBool("isRunning", true);
+            playerAnimator.SetBool("isRunning", true);
         }
     }
 
-    void Flip()
+    public void Jump()
+    {
+        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = Vector2.up * jumpForce;
+        }
+
+        // Animation.
+        if (isGrounded == true)
+        {
+            playerAnimator.SetBool("isJumping", false);
+        }
+        else
+        {
+            playerAnimator.SetBool("isJumping", true);
+        }
+    }
+
+    public void RunAndWalk()
+    {
+        // Run.
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        {
+            speed = 10f;
+        }
+        // Walk.
+        else if (!Input.GetKeyDown(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
+        {
+            speed = 4f;
+        }
+    }
+
+
+    public void Flip()
     {
         bodyRight = !bodyRight;
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
-
-        if (moveInput < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        else if (moveInput > 0)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
     }
 }
