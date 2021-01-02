@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
 
     // Private Settings.
     private float moveInput;
+    private const float DOUBLE_CLICK = .2f;
+    private float lastClickTime;
     private bool bodyRight = true;
     private bool isGrounded;
     private Rigidbody2D rb;
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
     {   
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
         Jump();
+        WeakAndStrongHit();
     }
 
     private void FixedUpdate()
@@ -103,6 +106,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void WeakAndStrongHit()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            playerAnimator.SetTrigger("Weak_Hit");
+        }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            playerAnimator.SetTrigger("Strong_Hit");
+        }
+    }
     public void Flip()
     {
         bodyRight = !bodyRight;
