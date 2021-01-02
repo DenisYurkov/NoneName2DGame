@@ -7,10 +7,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
-    public float speed;
+    public float walkSpeed;
     public float jumpForce;
     public float checkRadius;
-    
+    public float runSpeed;
+
     [Header("Player Position")]
     public Transform feetPos;
     public LayerMask whatIsGround;
@@ -39,8 +40,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         moveInput = Input.GetAxis("Horizontal");
-        RunAndWalk();
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        rb.velocity = new Vector2(moveInput * walkSpeed, rb.velocity.y);
+        RunAndWalkSpeed();
 
         // Flip Logic!
         if (bodyRight == false && moveInput > 0)
@@ -51,15 +52,6 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
-
-        if (moveInput == 0)
-        {
-            playerAnimator.SetBool("isRunning", false);
-        }
-        else
-        {
-            playerAnimator.SetBool("isRunning", true);
-        }
     }
 
     public void Jump()
@@ -69,31 +61,47 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.up * jumpForce;
         }
 
-        // Animation.
+        // Animation Jump.
         if (isGrounded == true)
         {
-            playerAnimator.SetBool("isJumping", false);
+            playerAnimator.SetBool("Is_Jumping", false);
         }
         else
         {
-            playerAnimator.SetBool("isJumping", true);
+            playerAnimator.SetBool("Is_Jumping", true);
         }
     }
 
-    public void RunAndWalk()
+    public void RunAndWalkSpeed()
     {
+        // Walk.
+        if (!Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        {
+            walkSpeed = 4f;
+            playerAnimator.SetTrigger("Is_Walk");
+            RoleCharacter();
+        }
+
         // Run.
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
         {
-            speed = 10f;
-        }
-        // Walk.
-        else if (!Input.GetKeyDown(KeyCode.LeftShift) && (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
-        {
-            speed = 4f;
+            walkSpeed = runSpeed;
+            playerAnimator.SetTrigger("Is_Running");
         }
     }
 
+    public void RoleCharacter()
+    {
+        if (Input.GetKey(KeyCode.LeftAlt))
+        {
+            playerAnimator.SetBool("Is_Role", true);
+
+        }
+        if (!Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            playerAnimator.SetBool("Is_Role", false);
+        }
+    }
 
     public void Flip()
     {
