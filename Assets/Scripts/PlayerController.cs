@@ -6,49 +6,44 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
-    private float moveInput;
-    private Rigidbody2D rb;
-    private bool bodyRight = true;
+    [Header("Player Settings")]
+    public float walkSpeed;
     public float jumpForce;
-    private bool isGrounded;
-    public Transform feetPos;
     public float checkRadius;
-    public LayerMask whatIsGround;
-    public Animator anim;
+    public float runSpeed;
 
+    [Header("Player Position")]
+    public Transform feetPos;
+    public LayerMask whatIsGround;
+
+    [Header("Player Animator")]
+    public Animator playerAnimator;
+
+    // Private Settings.
+    private float moveInput;
+    private bool bodyRight = true;
+    private bool isGrounded;
+    private Rigidbody2D rb;
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        playerAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
-    {
-        
+    {   
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
-
-        if (isGrounded == true && Input.GetKey(KeyCode.Space))
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            anim.SetTrigger("takeOf");
-
-        }
-        if (isGrounded == true)
-        {
-            anim.SetBool("isJumping", false);
-        }
-        else
-        {
-            anim.SetBool("isJumping", true);
-        }
-
+        Jump();
     }
+
     private void FixedUpdate()
     {
         moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        rb.velocity = new Vector2(moveInput * walkSpeed, rb.velocity.y);
+        RunAndWalkSpeed();
+
+        // Flip Logic!
         if (bodyRight == false && moveInput > 0)
         {
             Flip();
@@ -57,30 +52,62 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
-        if (moveInput == 0)
+    }
+
+    public void Jump()
+    {
+        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
         {
-            anim.SetBool("isRunning", false);
+            rb.velocity = Vector2.up * jumpForce;
+        }
+
+        // Animation Jump.
+        if (isGrounded == true)
+        {
+            playerAnimator.SetBool("Is_Jumping", false);
         }
         else
         {
-            anim.SetBool("isRunning", true);
+            playerAnimator.SetBool("Is_Jumping", true);
         }
     }
 
-    void Flip()
+    public void RunAndWalkSpeed()
+    {
+        // Walk.
+        if (!Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        {
+            walkSpeed = 4f;
+            playerAnimator.SetTrigger("Is_Walk");
+            RoleCharacter();
+        }
+
+        // Run.
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        {
+            walkSpeed = runSpeed;
+            playerAnimator.SetTrigger("Is_Running");
+        }
+    }
+
+    public void RoleCharacter()
+    {
+        if (Input.GetKey(KeyCode.LeftAlt))
+        {
+            playerAnimator.SetBool("Is_Role", true);
+
+        }
+        if (!Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            playerAnimator.SetBool("Is_Role", false);
+        }
+    }
+
+    public void Flip()
     {
         bodyRight = !bodyRight;
         Vector3 Scaler = transform.localScale;
         Scaler.x *= -1;
         transform.localScale = Scaler;
-
-        if (moveInput < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
-        else if (moveInput > 0)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
     }
 }

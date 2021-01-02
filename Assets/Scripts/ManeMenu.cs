@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ManeMenu : MonoBehaviour
 {
-
-
-
     public void LoadStart()
     {
         Debug.Log("Start");
