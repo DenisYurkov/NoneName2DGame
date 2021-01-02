@@ -1,17 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 29f5fa4ba4905344cacb6bbf9d295889
-=======
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-guid: 29f5fa4ba4905344cacb6bbf9d295889
-=======
-guid: 7356d4094ff77794fb80002f173b163f
->>>>>>> Stashed changes
-=======
-guid: dd57599f39bc55349bf2aaf67a92277e
->>>>>>> Stashed changes
->>>>>>> AliakseiYunevich
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +31,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
