@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 0f6f58c2e129a1047b2d635c527e6b02
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+guid: 0f6f58c2e129a1047b2d635c527e6b02
+=======
+guid: 2ba117df6687b21439ef5cb4aea1f96b
+>>>>>>> Stashed changes
+=======
+guid: 8d2dc258b85d5434ca66a4651d8838f4
+>>>>>>> Stashed changes
+>>>>>>> AliakseiYunevich
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -31,7 +43,19 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
     filterMode: 0
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+    filterMode: 0
+=======
+    filterMode: -1
+>>>>>>> Stashed changes
+=======
+    filterMode: -1
+>>>>>>> Stashed changes
+>>>>>>> AliakseiYunevich
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -71,6 +95,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> AliakseiYunevich
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -107,6 +136,13 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+>>>>>>> AliakseiYunevich
   spriteSheet:
     serializedVersion: 2
     sprites: []

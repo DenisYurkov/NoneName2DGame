@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 9a25329c1dda0f14097b6eab7e76c91c
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+guid: 9a25329c1dda0f14097b6eab7e76c91c
+=======
+guid: 6f8d24fecb542bd40883fa90e5f7ef27
+>>>>>>> Stashed changes
+=======
+guid: 930eb05ec9b7675439dd09930127924d
+>>>>>>> Stashed changes
+>>>>>>> AliakseiYunevich
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
