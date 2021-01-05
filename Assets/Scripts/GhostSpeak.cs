@@ -4,49 +4,46 @@ using UnityEngine;
 
 public class GhostSpeak : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [Header("GameObject Ghost")]
+    public GameObject ghost;
+
+    [Header("UI")]
     public GameObject ghostText;
     public GameObject ghostSay;
-    public GameObject ghost;
+
+    [Header("Ghost Animator")]
     public Animator ghostAnimator;
 
 
-    public void Start()
+    private void Start()
     {
         ghostAnimator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     private void OnTriggerStay2D(Collider2D collision)
     {
-        HideGhostText();
         if (collision.gameObject.tag == "Player")
         {
             ghostText.SetActive(true);
-
+            Invoke("DisableGhostText", 1f);
             if (Input.GetKeyDown(KeyCode.F))
             {
+                Destroy(ghostText);
                 ghostSay.SetActive(true);
-                ghostAnimator.SetTrigger("GhostHide");
-                HideGhostSay();
+                Invoke("GhostAnimation", 3f);
+                Destroy(ghostSay, 2f);
+                Destroy(ghost, 4f);
             }
-
         }
     }
 
-    private void GhostDestroy()
+    private void DisableGhostText()
     {
-        Destroy(ghost, 5f);
+        ghostText.SetActive(false);
     }
 
-    private void HideGhostText()
+    private void GhostAnimation()
     {
-        Destroy(ghost, 2f);
+        ghostAnimator.SetTrigger("GhostHide");
     }
-
-    private void HideGhostSay()
-    {
-        Destroy(ghost, 4f);
-    }
-
 }
