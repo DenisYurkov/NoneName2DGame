@@ -7,71 +7,73 @@ using UnityEngine.SceneManagement;
 public class buttons : MonoBehaviour
 {
     [Header("UI")]
-    public GameObject BgSet;
-    public GameObject DarkBg;
-    public GameObject BgMenu, AUSWin;
-
+    public GameObject letter, BgMenu, AUSWin, BgSet, Menu;
     private bool music = true;
     private float music_scale, sound_scale;
     public Slider sliderMusic, sliderSound;
     public Sprite music_on, music_off; 
     public Sprite Sound_on, Sound_off;
-    public GameObject letter;
+    [Header("aanimator")]
+    Animator curtain_animator;
 
-
-    private void Start()
+    void Start()
     {
-
+        curtain_animator = GameObject.Find("zanaves").GetComponent<Animator>();
     }
     void Escape() {
+      
         if (letter.activeSelf == false)
         {
-          
-            if (BgSet.activeSelf == true)
+            Debug.Log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
+            if (BgSet.activeSelf == true)   //condition if settings in menu is showed;
             {
+  
                 Time.timeScale = 1;
                 BgSet.SetActive(false);
                 BgMenu.SetActive(true);
-                DarkBg.SetActive(false);
+                Menu.SetActive(false);
             }
             else
             {
-                if (DarkBg.activeSelf == false)
+                if (Menu.activeSelf == false)          //condition if menu is not showed;
                 {
 
                     Time.timeScale = 0;
                     Cursor.lockState = CursorLockMode.Confined;
-
-                    DarkBg.SetActive(true);
+                    Debug.Log("hthrthrthrhr");
+                    Menu.SetActive(true);
                 
                 }
-                else
+                else                                       //condition if menu is showed;
                 {
-
-                    Time.timeScale = 1;
+        
+                    Time.timeScale = 1;                             
                     Cursor.lockState = CursorLockMode.Locked;
 
-                    DarkBg.SetActive(false);
+                    Menu.SetActive(false);
                            
                 }
             } 
 
         }
-        else letter.SetActive(false);
+        else letter.SetActive(false); //if letter is showed, close exactly letter;
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)) //show or close menu, letter, puzzles
            
         {
             if (AUSWin.activeSelf == false)
-                Debug.Log("rgregregerhehr");
-            Escape();
-            
+            {
+               
+                curtain_animator.SetTrigger("ismenu");
+                
+
+            }
         }
 
 
-       if (BgSet.activeSelf == true) { 
+       if (BgSet.activeSelf == true) {     //settings of game
         GameObject.Find("Main Camera").GetComponent<AudioSource>().volume = sliderMusic.value;
         GameObject.Find("UI").GetComponent<AudioSource>().volume = sliderSound.value;
         if (sliderMusic.value == 0)
@@ -98,7 +100,7 @@ public class buttons : MonoBehaviour
         }
 
     }
-    public void OnMouseUpAsButton() {
+    public void OnMouseUpAsButton() {  //button action
          switch (gameObject.name)
          {
             case "Try Again":
@@ -120,12 +122,13 @@ public class buttons : MonoBehaviour
             case "Yes":
                 SceneManager.LoadScene(0);
                 break;
-            case "BackToMM":
+            case "BackToMM":                    //back to main menu
                 BgMenu.SetActive(false);
                 AUSWin.SetActive(true);
                 break;
             case "Return":
-                Escape();
+                curtain_animator.SetTrigger("ismenu");
+                
                 break;
             case "Back":
                 BgMenu.SetActive(true);
@@ -138,7 +141,7 @@ public class buttons : MonoBehaviour
              case "Quit":
                 Application.Quit();
                 break;
-            case "Music":
+            case "Music":                       //music button and slider 
                 if (music == true)
                 {
                     GameObject.Find("Music").GetComponent<Image>().sprite = music_off;
@@ -154,7 +157,7 @@ public class buttons : MonoBehaviour
                     music = true;
                 }
                 break;
-            case "Sound":
+            case "Sound":                       //volume button and slider 
                 if (music == true)
                 {
                     GameObject.Find("Sound").GetComponent<Image>().sprite = Sound_off;

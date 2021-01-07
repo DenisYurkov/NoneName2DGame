@@ -9,7 +9,7 @@ public class Puzzles : MonoBehaviour
     public GameObject pressF;
     public GameObject letter;
     private bool check = false;
-
+    
     // Update is called once per frame
     private void OnTriggerStay2D(Collider2D collision)
     {
