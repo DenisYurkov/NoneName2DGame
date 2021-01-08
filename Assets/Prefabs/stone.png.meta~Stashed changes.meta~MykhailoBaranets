@@ -1,10 +1,14 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Anim.meta
 <<<<<<< Updated upstream:Assets/Anim.meta
 guid: c84bf647aa861ae409cc57cbc86de08b
 =======
 guid: eec67a91fed83f74eae877d1d488810f
 >>>>>>> Stashed changes:Assets/Scenes.meta
 folderAsset: yes
+=======
+guid: 17f1389ba189204469d77a5cc0ee9f4e
+>>>>>>> MykhailoBaranets:Assets/Prefabs/stone.png.meta~Stashed changes.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

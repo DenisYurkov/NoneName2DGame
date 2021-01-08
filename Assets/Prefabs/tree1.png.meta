@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/DenisYurkov:Assets/Prefabs/tree1.png.meta
 guid: 2a74538478ec1d94da67769623059aaf
 =======
@@ -12,6 +13,9 @@ guid: d3c180d92a255c945bd0204cad94b700
 guid: 87aa96cdfdeebd7408947c635b63ab64
 >>>>>>> Stashed changes
 >>>>>>> Auto stash before merge of "main" and "origin/main":Assets/Art and assets/sprites_viking_axe/axe_origin/attack2_6.png.meta
+=======
+guid: b7d604a3f961e1248b7df2ca552676f3
+>>>>>>> MykhailoBaranets
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
