@@ -1,5 +1,21 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Art and assets/sprites_viking_axe/axe_origin/strongAttack4.png.meta
 guid: a04fb16fcd3ed1242a50625d650608ed
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+guid: 8b93f80acab468a4d909b6f73b3b1fa3
+=======
+guid: f3a3f755ea27c9043a2df9065232ac78
+>>>>>>> Stashed changes
+=======
+guid: dc54d4556dd285e41827972e19ffa865
+>>>>>>> Stashed changes
+=======
+guid: 8b93f80acab468a4d909b6f73b3b1fa3
+>>>>>>> main
+>>>>>>> main:Assets/Art and assets/sprites_viking_axe/axe_origin/attack1_6.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

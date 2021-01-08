@@ -6,11 +6,15 @@ guid: e0197200319134c45b221f8a0edc8002
 guid: bd61e778993e0434ebacec705b718fa1
 >>>>>>> Stashed changes
 =======
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/DenisYurkov
 guid: 1ceed82c3e0f2b0489bc5eff4d68e17d
 =======
 guid: d6a162bde9ef0e04b83f11c7f51676e1
 >>>>>>> Auto stash before merge of "main" and "origin/main"
+=======
+guid: d6a162bde9ef0e04b83f11c7f51676e1
+>>>>>>> main
 >>>>>>> Stashed changes
 folderAsset: yes
 DefaultImporter:

@@ -1,5 +1,21 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Art and assets/sprites_viking_axe/axe_origin/weakAttack3.png.meta
 guid: 7e7252ceb0350584bbd3f42703b7f6ff
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+guid: cebd0e1e1a368ac4a96518b373e292e7
+=======
+guid: 65ae655e7e63af646952c7abdd2b3d76
+>>>>>>> Stashed changes
+=======
+guid: 4f49fa710b14c944ebf10ea939f82691
+>>>>>>> Stashed changes
+=======
+guid: cebd0e1e1a368ac4a96518b373e292e7
+>>>>>>> main
+>>>>>>> main:Assets/Art and assets/sprites_viking_axe/axe_origin/attack2_5.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

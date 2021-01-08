@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< refs/remotes/origin/DenisYurkov
 guid: d04f4a34418ecc14b92cb6ea9541ffc2
 =======
@@ -6,12 +7,25 @@ guid: d04f4a34418ecc14b92cb6ea9541ffc2
 <<<<<<< Updated upstream
 guid: d04f4a34418ecc14b92cb6ea9541ffc2
 =======
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+guid: d04f4a34418ecc14b92cb6ea9541ffc2
+=======
+>>>>>>> main
 guid: bb114b4e0a1c4564f8c358acb84cbcc8
 >>>>>>> Stashed changes
 =======
 guid: ace94d9b6e2031e47b27e2f2d444a985
 >>>>>>> Stashed changes
+<<<<<<< HEAD
 >>>>>>> Auto stash before merge of "main" and "origin/main"
+=======
+=======
+guid: d04f4a34418ecc14b92cb6ea9541ffc2
+>>>>>>> main
+>>>>>>> main
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
