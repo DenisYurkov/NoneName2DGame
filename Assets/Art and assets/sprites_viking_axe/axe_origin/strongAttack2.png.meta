@@ -1,5 +1,21 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Art and assets/sprites_viking_axe/axe_origin/strongAttack2.png.meta
 guid: da8f77ee9241e964cb5c7f3eb2b3290c
+=======
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+guid: 0f6f58c2e129a1047b2d635c527e6b02
+=======
+guid: 2ba117df6687b21439ef5cb4aea1f96b
+>>>>>>> Stashed changes
+=======
+guid: dec3928d2f7b900408f13ead1d25c54d
+>>>>>>> Stashed changes
+=======
+guid: 0f6f58c2e129a1047b2d635c527e6b02
+>>>>>>> main
+>>>>>>> main:Assets/Art and assets/sprites_viking_axe/axe_origin/attack1_3.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -31,7 +47,19 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     filterMode: 0
+=======
+    filterMode: -1
+>>>>>>> Stashed changes
+=======
+    filterMode: -1
+>>>>>>> Stashed changes
+=======
+    filterMode: 0
+>>>>>>> main
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -71,6 +99,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> main
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -107,6 +140,13 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> main
   spriteSheet:
     serializedVersion: 2
     sprites: []

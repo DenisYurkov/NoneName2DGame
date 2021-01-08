@@ -1,9 +1,25 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< refs/remotes/origin/DenisYurkov
+<<<<<<< HEAD
 guid: 1f8876bee6e334e45919ed8253aef60a
 =======
 guid: b78dde3c9b00bf2419622fb83880bb2d
 >>>>>>> AliakseiYunevich
+=======
+<<<<<<< Updated upstream
+guid: 1f8876bee6e334e45919ed8253aef60a
+=======
+guid: 0167ac6dd3e7c9243b1676febddb723e
+>>>>>>> Stashed changes
+>>>>>>> Auto stash before rebase of "origin/DenisYurkov"
+=======
+<<<<<<< Updated upstream
+guid: 1f8876bee6e334e45919ed8253aef60a
+=======
+guid: 0167ac6dd3e7c9243b1676febddb723e
+>>>>>>> Stashed changes
+>>>>>>> main
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
