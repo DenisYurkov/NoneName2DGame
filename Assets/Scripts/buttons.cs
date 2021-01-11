@@ -20,6 +20,10 @@ public class buttons : MonoBehaviour
     {
         curtain_animator = GameObject.Find("zanaves").GetComponent<Animator>();
     }
+
+   
+
+
     void Escape() {
       
         if (letter.activeSelf == false)
@@ -27,7 +31,6 @@ public class buttons : MonoBehaviour
             Debug.Log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
             if (BgSet.activeSelf == true)   //condition if settings in menu is showed;
             {
-  
                 Time.timeScale = 1;
                 BgSet.SetActive(false);
                 BgMenu.SetActive(true);
