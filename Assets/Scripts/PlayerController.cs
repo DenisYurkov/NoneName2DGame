@@ -3,41 +3,45 @@ using System.Collections.Generic;
 using System.Security;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("Player Settings")]
-    public float walkSpeed;
-    public float jumpForce;
-    public float checkRadius;
-    public float runSpeed;
+    public Transform attackPos;
+    public LayerMask WhatIsEnemies;
 
-    [Header("Player Position")]
-    public Transform feetPos;
-    public LayerMask whatIsGround;
+    public float healthPlayer;
+    public int damagePlayer;
+    public int damageEnemy;
+
+    public float walkSpeed;
+    public float runSpeed;
+    public float startTimeBtwAttack;
+    public float attackRange;
 
     [Header("Player Animator")]
     public Animator playerAnimator;
+    // public Animator camAnim;
 
     // Private Settings.
+    private float timeBtwAttack;
     private float moveInput;
-    private const float DOUBLE_CLICK = .2f;
-    private float lastClickTime;
     private bool bodyRight = true;
-    private bool isGrounded;
     private Rigidbody2D rb;
+
 
     private void Start()
     {
         playerAnimator = GetComponent<Animator>();
+       /* camAnim = GetComponent<Animator>();*/
         rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
     {   
-        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
-        Jump();
-        WeakAndStrongHit();
+        OnAttack();
+        DieCharacter();
     }
 
     private void FixedUpdate()
@@ -57,24 +61,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Jump()
+    public void DieCharacter()
     {
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        if (healthPlayer <= 0)
         {
-            rb.velocity = Vector2.up * jumpForce;
-        }
-
-        // Animation Jump.
-        if (isGrounded == true)
-        {
-            playerAnimator.SetBool("Is_Jumping", false);
-        }
-        else
-        {
-            playerAnimator.SetBool("Is_Jumping", true);
+            playerAnimator.SetTrigger("PlayerDie");
         }
     }
-
     public void RunAndWalkSpeed()
     {
         // Walk.
@@ -105,18 +98,6 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("Is_Role", false);
         }
     }
-
-    public void WeakAndStrongHit()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            playerAnimator.SetTrigger("Weak_Hit");
-        }
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            playerAnimator.SetTrigger("Strong_Hit");
-        }
-    }
     public void Flip()
     {
         bodyRight = !bodyRight;
@@ -124,4 +105,43 @@ public class PlayerController : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
     }
+
+    public void OnAttack()
+    {
+        if (timeBtwAttack <= 0)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                playerAnimator.SetTrigger("Attack");
+               // camAnim.SetTrigger("cameraAnimation");
+
+                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, attackRange, WhatIsEnemies);
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    enemies[i].GetComponent<Enemy>().TakeDamagePlayer(damagePlayer);
+                }
+            }
+            timeBtwAttack = startTimeBtwAttack;
+        }
+        else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            playerAnimator.SetTrigger("PlayerHit");
+            healthPlayer -= damageEnemy;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
+    }
 }
+
+

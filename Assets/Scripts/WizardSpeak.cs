@@ -29,7 +29,7 @@ public class WizardSpeak : MonoBehaviour
             {
                 Destroy(wizardText);
                 wizardSay.SetActive(true);
-                Invoke("GhostAnimation", 4f);
+                Invoke("GhostPlayerAnimation", 4f);
                 Invoke("DisableWizardSay", 6f);
                 Destroy(wizardSay, 7f);
                 Destroy(playerGhost, 8f);
@@ -46,8 +46,8 @@ public class WizardSpeak : MonoBehaviour
         wizardSay.SetActive(false);
     }
 
-    private void GhostPlyerAnimation()
+    private void GhostPlayerAnimation()
     {
-        ghostPlayerAnimator.SetTrigger("GhostHide");
+        ghostPlayerAnimator.SetTrigger("PlayerGhostHide");
     }
 }

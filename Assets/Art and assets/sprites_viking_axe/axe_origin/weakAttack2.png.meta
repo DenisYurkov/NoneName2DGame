@@ -1,21 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD:Assets/Art and assets/sprites_viking_axe/axe_origin/weakAttack2.png.meta
 guid: b59246092fc897146936bcb28df6ac4e
-=======
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-guid: 0ad3fc545b36baa4e8060dd434124a4f
-=======
-guid: 872540c241df8ce42ae329ece419819e
->>>>>>> Stashed changes
-=======
-guid: 4099894682b35ae44a7a0dc17b349674
->>>>>>> Stashed changes
-=======
-guid: 0ad3fc545b36baa4e8060dd434124a4f
->>>>>>> main
->>>>>>> main:Assets/Art and assets/sprites_viking_axe/axe_origin/attack2_4.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -52,7 +36,7 @@ TextureImporter:
     mipBias: -100
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -73,14 +57,14 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -92,7 +76,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,7 +88,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -116,7 +100,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
