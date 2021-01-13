@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
     public float healthEnemy;
     public Animator animatorEnemy;
+    public float damageEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
         animatorEnemy = GetComponent<Animator>();
-        animatorEnemy.SetBool("isRunning", true);
-
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (healthEnemy <= 0)
         {
@@ -36,10 +34,9 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            //TakeDamageEnemy(damageEnemy);
-            //GetComponent<PlayerController>().hitCharacter();
-            animatorEnemy.SetTrigger("ZombiHit");
             animatorEnemy.SetTrigger("ZombiAttack");
+            collision.GetComponent<PlayerController>().playerAnimator.SetInteger("State", 5);
+            collision.GetComponent<PlayerController>().healthPlayer -= damageEnemy;
         }
     }
 

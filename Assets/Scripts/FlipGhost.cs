@@ -12,7 +12,7 @@ public class FlipGhost : MonoBehaviour
     {
         Invoke("Flip", timeForFlip);
     }
-
+    
     private void Flip()
     {
         ghost.flipX = true;

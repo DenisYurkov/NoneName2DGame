@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpawnEnemes : MonoBehaviour
 {
     public GameObject enem;
+    public GameObject transformGameObject;
+    
     public float spawnTime = 5f;
     public float spawnDelay = 3f;
 
@@ -19,12 +21,7 @@ public class SpawnEnemes : MonoBehaviour
     {
         for (int i = 0; i < 1; i++)
         {
-            float spawnY = Random.Range
-                (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).y, Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y);
-            float spawnX = Random.Range
-                (Camera.main.ScreenToWorldPoint(new Vector2(0, 0)).x, Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0)).x);
-
-            Vector2 spawnPosition = new Vector2(spawnX, spawnY);
+            Vector2 spawnPosition = new Vector2(transformGameObject.transform.position.x , transformGameObject.transform.position.y);
             Instantiate(enem, spawnPosition, Quaternion.identity);
         }
     }
