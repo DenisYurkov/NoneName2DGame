@@ -1,12 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Life and Damage Enemy")]
     public float healthEnemy;
-    public Animator animatorEnemy;
     public float damageEnemy;
+    
+    [Header("Animator and AI Enemy")]
+    public Animator animatorEnemy;
+    public AIPath enemyAI;
+
+    [Header("Transform Settings Enemy")]
+    public float valueEnemyChangeYTransformToDie;
+    public Transform enemyTransform;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +29,9 @@ public class Enemy : MonoBehaviour
     {
         if (healthEnemy <= 0)
         {
-            // animatorEnemy.SetTrigger("EnemyDie");
-            Destroy(gameObject);
+            animatorEnemy.SetTrigger("ZombiDie");
+            Destroy(enemyAI);
+            enemyTransform.position = new Vector2(enemyTransform.position.x, valueEnemyChangeYTransformToDie);
         }
     }
 
