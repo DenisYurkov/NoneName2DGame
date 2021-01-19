@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class PlayerController : MonoBehaviour
     public Animator playerAnimator;
     // public Animator camAnim;
 
+    [Header("Scene Settings")]
+    public string nameRestartScene;
+    
     // Private Settings.
     private float moveInput;
     private bool bodyRight = true;
@@ -113,6 +117,12 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+    }
+
+    private void GameRestart()
+    {
+
+        SceneManager.LoadScene(nameRestartScene);
     }
 
 
