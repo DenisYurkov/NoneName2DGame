@@ -1,15 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadingScene : MonoBehaviour
 {
-    public void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] private string sceneName;
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("Day 2");
+            SceneManager.LoadScene(sceneName);
         }
     }
 }

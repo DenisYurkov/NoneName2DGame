@@ -1,9 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Security;
-using System.Security.Cryptography;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,11 +8,9 @@ public class PlayerController : MonoBehaviour
 
     public float healthPlayer;
     public int damagePlayer;
-    public int damageEnemy;
 
     public float walkSpeed;
     public float runSpeed;
-    public float startTimeBtwAttack;
     public float attackRange;
 
     [Header("Player Animator")]
@@ -25,7 +18,6 @@ public class PlayerController : MonoBehaviour
     // public Animator camAnim;
 
     // Private Settings.
-    private float timeBtwAttack;
     private float moveInput;
     private bool bodyRight = true;
     private Rigidbody2D rb;
@@ -36,6 +28,7 @@ public class PlayerController : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
        /* camAnim = GetComponent<Animator>();*/
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     private void Update()
@@ -47,8 +40,10 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         moveInput = Input.GetAxis("Horizontal");
+        playerAnimator.SetInteger("State", 0);
         rb.velocity = new Vector2(moveInput * walkSpeed, rb.velocity.y);
         RunAndWalkSpeed();
+        RoleCharacter();
 
         // Flip Logic!
         if (bodyRight == false && moveInput > 0)
@@ -61,44 +56,39 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void DieCharacter()
+    private void DieCharacter()
     {
         if (healthPlayer <= 0)
         {
-            playerAnimator.SetTrigger("PlayerDie");
+            playerAnimator.SetInteger("State", 6);
         }
+
     }
-    public void RunAndWalkSpeed()
+    private void RunAndWalkSpeed()
     {
         // Walk.
         if (!Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
         {
-            walkSpeed = 4f;
-            playerAnimator.SetTrigger("Is_Walk");
-            RoleCharacter();
+            playerAnimator.SetInteger("State", 1);
         }
 
         // Run.
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
         {
             walkSpeed = runSpeed;
-            playerAnimator.SetTrigger("Is_Running");
+            playerAnimator.SetInteger("State", 2);
         }
+
     }
 
-    public void RoleCharacter()
+    private void RoleCharacter()
     {
         if (Input.GetKey(KeyCode.LeftAlt))
         {
-            playerAnimator.SetBool("Is_Role", true);
-
-        }
-        if (!Input.GetKeyDown(KeyCode.LeftAlt))
-        {
-            playerAnimator.SetBool("Is_Role", false);
+            playerAnimator.SetInteger("State", 3);
         }
     }
-    public void Flip()
+    private void Flip()
     {
         bodyRight = !bodyRight;
         Vector3 Scaler = transform.localScale;
@@ -106,36 +96,25 @@ public class PlayerController : MonoBehaviour
         transform.localScale = Scaler;
     }
 
-    public void OnAttack()
+    private void OnAttack()
     {
-        if (timeBtwAttack <= 0)
+   
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                playerAnimator.SetTrigger("Attack");
-               // camAnim.SetTrigger("cameraAnimation");
+            playerAnimator.SetInteger("State", 4);
+            // camAnim.SetTrigger("cameraAnimation");
+            
 
-                Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, attackRange, WhatIsEnemies);
-                for (int i = 0; i < enemies.Length; i++)
-                {
-                    enemies[i].GetComponent<Enemy>().TakeDamagePlayer(damagePlayer);
-                }
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, attackRange, WhatIsEnemies);
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].GetComponent<Enemy>().animatorEnemy.SetTrigger("ZombiHit");
+                enemies[i].GetComponent<Enemy>().TakeDamagePlayer(damagePlayer);
+
             }
-            timeBtwAttack = startTimeBtwAttack;
-        }
-        else
-        {
-            timeBtwAttack -= Time.deltaTime;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            playerAnimator.SetTrigger("PlayerHit");
-            healthPlayer -= damageEnemy;
-        }
-    }
+
 
     private void OnDrawGizmosSelected()
     {
