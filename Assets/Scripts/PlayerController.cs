@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,20 +17,31 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Animator")]
     public Animator playerAnimator;
-    // public Animator camAnim;
+ 
+    [Header("Scene Settings")]
+    public string nameRestartScene;
+
+    [Header("Player Hearts")]
+    public Image[] hearts;
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
+
 
     // Private Settings.
+    private Animator restartGameAnimation;
+    private Animator camAnim;
     private float moveInput;
     private bool bodyRight = true;
     private Rigidbody2D rb;
 
 
+
     private void Start()
     {
         playerAnimator = GetComponent<Animator>();
-       /* camAnim = GetComponent<Animator>();*/
+        camAnim = GameObject.Find("Cinematic Camera").GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-
+        restartGameAnimation = GameObject.Find("Global Light 2D").GetComponent<Animator>();
     }
 
     private void Update()
@@ -54,13 +67,51 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
+
+        HeartsPlayerCheck();
+
+
     }
 
+    private void HeartsPlayerCheck()
+    {
+        if (healthPlayer == 100)
+        {
+            hearts[2].sprite = emptyHeart;
+        }
+
+        if (healthPlayer == 80)
+        {
+            Destroy(GameObject.Find("heart (3)"));
+        }
+
+        if (healthPlayer == 60)
+        {
+            hearts[1].sprite = emptyHeart;
+        }
+
+        if (healthPlayer == 40)
+        {
+            Destroy(GameObject.Find("heart (2)"));
+        }
+
+        if (healthPlayer == 20)
+        {
+            hearts[0].sprite = emptyHeart;
+        }
+
+        if (healthPlayer == 0)
+        {
+            Destroy(GameObject.Find("heart (1)"));
+        }
+    }
     private void DieCharacter()
     {
         if (healthPlayer <= 0)
         {
             playerAnimator.SetInteger("State", 6);
+            restartGameAnimation.SetTrigger("Is_Die");
+            Invoke("GameRestart", 2f);
         }
 
     }
@@ -102,8 +153,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             playerAnimator.SetInteger("State", 4);
-            // camAnim.SetTrigger("cameraAnimation");
-            
+            camAnim.SetTrigger("cameraAnimation");
+
 
             Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, attackRange, WhatIsEnemies);
             for (int i = 0; i < enemies.Length; i++)
@@ -113,6 +164,11 @@ public class PlayerController : MonoBehaviour
 
             }
         }
+    }
+
+    private void GameRestart()
+    {
+        SceneManager.LoadScene(nameRestartScene);
     }
 
 

@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 public class buttons : MonoBehaviour
 {
     [Header("UI")]
-    public GameObject letter, BgMenu, AUSWin, BgSet, Menu;
+    public GameObject letter, BgMenu, AUSWin, BgSet, Menu, activePanel;
     private bool music = true;
     private float music_scale, sound_scale;
     public Slider sliderMusic, sliderSound;
     public Sprite music_on, music_off; 
     public Sprite Sound_on, Sound_off;
-    [Header("aanimator")]
+    [Header("animator")]
     Animator curtain_animator;
-
+    public bool check = false;
     void Start()
     {
         curtain_animator = GameObject.Find("zanaves").GetComponent<Animator>();
@@ -25,10 +25,9 @@ public class buttons : MonoBehaviour
 
 
     void Escape() {
-      
-        if (letter.activeSelf == false)
+
+        if (letter.activeSelf == false && activePanel.activeSelf == false )
         {
-            Debug.Log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
             if (BgSet.activeSelf == true)   //condition if settings in menu is showed;
             {
                 Time.timeScale = 1;
@@ -40,38 +39,34 @@ public class buttons : MonoBehaviour
             {
                 if (Menu.activeSelf == false)          //condition if menu is not showed;
                 {
-
                     Time.timeScale = 0;
                     Cursor.lockState = CursorLockMode.Confined;
-                    Debug.Log("hthrthrthrhr");
                     Menu.SetActive(true);
-                
                 }
                 else                                       //condition if menu is showed;
                 {
-        
-                    Time.timeScale = 1;                             
+                    Time.timeScale = 1;
                     Cursor.lockState = CursorLockMode.Locked;
-
                     Menu.SetActive(false);
-                           
                 }
-            } 
+            }
 
         }
-        else letter.SetActive(false); //if letter is showed, close exactly letter;
+        else if (letter.activeSelf == true || activePanel.activeSelf == true)                                           //if letter is showed, close exactly letter;
+        {
+            activePanel.SetActive(false);
+            letter.SetActive(false);
+            Time.timeScale = 1;
+            Cursor.lockState = CursorLockMode.Locked;
+        }                     
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) //show or close menu, letter, puzzles
-           
+        if (Input.GetKeyDown(KeyCode.Escape)) //show or close menu, letter, puzzles     
         {
-            if (AUSWin.activeSelf == false)
-            {
-               
-                curtain_animator.SetTrigger("ismenu");
-                
-
+            if (AUSWin.activeSelf == false || check == true)
+            {             
+                curtain_animator.SetTrigger("ismenu");              
             }
         }
 
@@ -85,9 +80,7 @@ public class buttons : MonoBehaviour
         }
         else
         {
-
             GameObject.Find("Music").GetComponent<Image>().sprite = music_on;
-
         }
             if (sliderSound.value == 0)
             {
@@ -95,9 +88,7 @@ public class buttons : MonoBehaviour
             }
             else
             {
-
                 GameObject.Find("Sound").GetComponent<Image>().sprite = Sound_on;
-
             }
 
         }
