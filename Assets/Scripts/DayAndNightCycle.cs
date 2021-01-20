@@ -37,6 +37,6 @@ public class DayAndNightCycle : MonoBehaviour
         if ((int)time == 45)
             canChangeDay = true;
         time += Time.deltaTime;
-        light.GetComponent<Light2D>().color = lightColor.Evaluate(time * 0.009f); 
+        light.GetComponent<Light2D>().color = lightColor.Evaluate(time * 0.01f); 
     }
 }
