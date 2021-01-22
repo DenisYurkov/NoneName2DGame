@@ -41,8 +41,8 @@ public class DialogueSystem : MonoBehaviour
                 Destroy(textButton);
                 personSay.SetActive(true);
 
-                Invoke("PersonAnimation", invokePersonAnimation);
                 Invoke("PersonSay", invokePersonSay);
+                Invoke("PersonAnimation", invokePersonAnimation);
                 
                 Destroy(personSay, destroyPersonSay);
                 Destroy(person, destroyPerson);
