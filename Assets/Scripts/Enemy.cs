@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     [Header("Transform Settings Enemy")]
     public float valueEnemyChangeYTransformToDie;
     public Transform enemyTransform;
+    public BoxCollider2D boxCollider2D;
 
 
     // Start is called before the first frame update
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour
             animatorEnemy.SetTrigger("ZombiDie");
             Destroy(enemyAI);
             enemyTransform.position = new Vector2(enemyTransform.position.x, valueEnemyChangeYTransformToDie);
+            Destroy(boxCollider2D);
         }
     }
 
