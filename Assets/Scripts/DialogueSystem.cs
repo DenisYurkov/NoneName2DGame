@@ -17,11 +17,11 @@ public class DialogueSystem : MonoBehaviour
 
     [Header("Time To Hide")]
     public float invokeTextButton = 1f;
-    public float invokePersonAnimation = 4f;
-    public float invokePersonSay = 6f;
+    public float invokePersonAnimation = 8f;
+    public float invokePersonSay = 8f;
 
-    public float destroyPersonSay = 7f;
-    public float destroyPerson = 8f;
+    public float destroyPersonSay = 9f;
+    public float destroyPerson = 13f;
 
 
 

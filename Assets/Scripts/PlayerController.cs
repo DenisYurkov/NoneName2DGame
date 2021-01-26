@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
     private void RunAndWalkSpeed()
     {
         // Walk.
-        if (!Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             playerAnimator.SetInteger("State", 1);
         }

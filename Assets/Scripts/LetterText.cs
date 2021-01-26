@@ -20,7 +20,7 @@ public class LetterText : MonoBehaviour
                     letterText.GetComponent<TextMeshProUGUI>().text = "Follow the ghost.";
                     break;
                 case "Where":
-                    letterText.GetComponent<TextMeshProUGUI>().text = "I need to find his.";
+                    letterText.GetComponent<TextMeshProUGUI>().text = "I went fishing will be back soon.";
                     break;
             }
         }
