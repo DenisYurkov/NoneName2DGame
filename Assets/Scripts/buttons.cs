@@ -40,12 +40,14 @@ public class buttons : MonoBehaviour
                 if (Menu.activeSelf == false)          //condition if menu is not showed;
                 {
                     Time.timeScale = 0;
+                    Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.Confined;
                     Menu.SetActive(true);
                 }
                 else                                       //condition if menu is showed;
                 {
                     Time.timeScale = 1;
+                    Cursor.visible = false;
                     Cursor.lockState = CursorLockMode.Locked;
                     Menu.SetActive(false);
                 }
@@ -57,6 +59,7 @@ public class buttons : MonoBehaviour
             activePanel.SetActive(false);
             letter.SetActive(false);
             Time.timeScale = 1;
+            Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }                     
     }
@@ -105,7 +108,7 @@ public class buttons : MonoBehaviour
                 SceneManager.LoadScene(0);
                 Time.timeScale = 1;
                 break;
-            case "New game":
+            case "New Game":
                 SceneManager.LoadScene(1);
                 Time.timeScale = 1;
                 break;

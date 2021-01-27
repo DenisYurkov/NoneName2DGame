@@ -36,7 +36,7 @@ public class DialogueSystem : MonoBehaviour
         {
             textButton.SetActive(true);
             Invoke("TextButton", invokeTextButton);
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKey(KeyCode.F))
             {
                 Destroy(textButton);
                 personSay.SetActive(true);

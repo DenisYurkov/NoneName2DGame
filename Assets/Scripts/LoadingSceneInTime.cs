@@ -15,7 +15,7 @@ public class LoadingSceneInTime : MonoBehaviour
         Invoke("ShowScene", timeForShowScene);        
     }
 
-    private void ShowScene()
+    public void ShowScene()
     {
         SceneManager.LoadScene(sceneName);
     }
