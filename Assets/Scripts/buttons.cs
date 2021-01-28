@@ -19,12 +19,10 @@ public class buttons : MonoBehaviour
     void Start()
     {
         curtain_animator = GameObject.Find("zanaves").GetComponent<Animator>();
+        Cursor.visible = true;
     }
 
-   
-
-
-    void Escape() {
+   public void Escape() {
 
         if (letter.activeSelf == false && activePanel.activeSelf == false )
         {
