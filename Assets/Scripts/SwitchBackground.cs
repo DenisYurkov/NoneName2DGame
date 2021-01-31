@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwitchBackground : MonoBehaviour
 {
     public Sprite layer_day, layer_night;
+    public GameObject SpawnEnemy;
     void Start()
     {
         Day();
@@ -19,7 +20,8 @@ public class SwitchBackground : MonoBehaviour
     void Night()
     {
         GetComponent<SpriteRenderer>().sprite = layer_night;
-        Invoke("Day", 40f);
+        SpawnEnemy.SetActive(true);
+        Invoke("Day", 300f);
     }
 }
 

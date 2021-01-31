@@ -48,6 +48,7 @@ public class Puzzles : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
                 door.GetComponent<SpriteRenderer>().sprite = doorOpen;
                 door.GetComponent<BoxCollider2D>().enabled = false;
+                Cursor.visible = false;
             }
           
 
@@ -114,6 +115,7 @@ public class Puzzles : MonoBehaviour
                         GameObject.Find("F").SetActive(false);
                         activePanel.SetActive(true);
                         Time.timeScale = 0;
+                        Cursor.visible = true;
                         Cursor.lockState = CursorLockMode.Confined;
 
                     }

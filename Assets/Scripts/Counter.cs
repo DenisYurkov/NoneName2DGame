@@ -15,8 +15,5 @@ public class Counter : MonoBehaviour
     void Update()
     {
         this.GetComponent<TextMeshProUGUI>().text = count + "/3";
-        if (count == 3) {
-            GameObject.Find("Squirrel").GetComponent<BoxCollider2D>().enabled = true;
-        }
     }
 }

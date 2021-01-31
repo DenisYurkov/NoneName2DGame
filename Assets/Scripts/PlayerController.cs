@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
         playerAnimator = GetComponent<Animator>();
         camAnim = GameObject.Find("Cinematic Camera").GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -118,7 +119,7 @@ public class PlayerController : MonoBehaviour
     private void RunAndWalkSpeed()
     {
         // Walk.
-        if (!Input.GetKey(KeyCode.LeftShift) && (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             playerAnimator.SetInteger("State", 1);
         }

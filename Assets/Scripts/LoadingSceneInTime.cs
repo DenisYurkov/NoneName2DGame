@@ -9,13 +9,17 @@ public class LoadingSceneInTime : MonoBehaviour
     public string sceneName;
     public float timeForShowScene;
 
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
     // Update is called once per frame
     private void Update()
     {
-        Invoke("ShowScene", timeForShowScene);        
+        Invoke("ShowScene", timeForShowScene);
     }
 
-    private void ShowScene()
+    public void ShowScene()
     {
         SceneManager.LoadScene(sceneName);
     }
