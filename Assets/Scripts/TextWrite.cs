@@ -7,7 +7,7 @@ public class TextWrite : MonoBehaviour
 	Text txt;
 	string story;
 
-	void Awake()
+    void Awake()
 	{
 		txt = GetComponent<Text>();
 		story = txt.text;

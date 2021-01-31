@@ -19,7 +19,7 @@ public class buttons : MonoBehaviour
     void Start()
     {
         curtain_animator = GameObject.Find("zanaves").GetComponent<Animator>();
-        Cursor.visible = true;
+
     }
 
    public void Escape() {
@@ -115,6 +115,7 @@ public class buttons : MonoBehaviour
                 AUSWin.SetActive(false);
                 break;
             case "Yes":
+                Cursor.visible = true;
                 SceneManager.LoadScene(0);
                 break;
             case "BackToMM":                    //back to main menu
@@ -129,7 +130,7 @@ public class buttons : MonoBehaviour
                 BgMenu.SetActive(true);
                 BgSet.SetActive(false);
                 break;
-             case "Settings":
+             case "Creators":
                 BgMenu.SetActive(false);
                 BgSet.SetActive(true);
                  break;

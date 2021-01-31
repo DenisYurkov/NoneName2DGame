@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        Cursor.visible = false;
+        /*GetComponent<CursorVisible>().Cursors(false);*/
         playerAnimator = GetComponent<Animator>();
         camAnim = GameObject.Find("Cinematic Camera").GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
