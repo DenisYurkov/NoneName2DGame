@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogueSystem : MonoBehaviour
 {
@@ -19,10 +20,13 @@ public class DialogueSystem : MonoBehaviour
     public float invokeTextButton = 1f;
     public float invokePersonAnimation = 8f;
     public float invokePersonSay = 8f;
-
     public float destroyPersonSay = 9f;
     public float destroyPerson = 13f;
 
+    [Header("Scene Manager")]
+    public bool haveScene = false;
+    public string sceneName;
+    public float timeForLoadningScene;
 
 
     private void Start()
@@ -46,6 +50,10 @@ public class DialogueSystem : MonoBehaviour
                 
                 Destroy(personSay, destroyPersonSay);
                 Destroy(person, destroyPerson);
+                if (haveScene == true)
+                {
+                    Invoke("LoadingScene", timeForLoadningScene);
+                }
             }
         }
     }
@@ -54,13 +62,19 @@ public class DialogueSystem : MonoBehaviour
     {
         textButton.SetActive(false);
     }
+
     private void PersonAnimation()
     {
         personAnimator.SetTrigger(triggerName);
     }
+
     private void PersonSay()
     {
         personSay.SetActive(false);
     }
 
+    private void LoadingScene()
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }
