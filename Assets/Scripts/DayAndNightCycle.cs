@@ -21,12 +21,12 @@ public class DayAndNightCycle : MonoBehaviour
 
     private void Update() 
     {
-        if (time > 80) 
+        if (time > 340) 
         {
             time = 0;
         }
 
-        if ((int) time == 40 && canChangeDay) 
+        if ((int) time == 290 && canChangeDay) 
         {
             canChangeDay = false;
             DayChanged();
@@ -34,9 +34,9 @@ public class DayAndNightCycle : MonoBehaviour
 
         }
 
-        if ((int)time == 45)
+        if ((int)time == 300)
             canChangeDay = true;
         time += Time.deltaTime;
-        light.GetComponent<Light2D>().color = lightColor.Evaluate(time * 0.01f); 
+        light.GetComponent<Light2D>().color = lightColor.Evaluate(time * 0.0025f); 
     }
 }
